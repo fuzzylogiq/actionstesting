@@ -5,7 +5,7 @@ jobs:
     name: job1
     runs-on: ubuntu-latest
     steps:
-     - name: print date
+      - name: print date
         run: date
   job2:
     runs-on: macos-latest
