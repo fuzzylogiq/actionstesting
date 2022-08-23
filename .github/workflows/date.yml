@@ -18,8 +18,8 @@ jobs:
       - name: print date
         run: Get-Date
   job4:
+    needs: [job1, job2, job3]
     runs-on: windows-latest
     steps:
-      - needs: [job1, job2, job3]
-        name: print date
+      - name: print date
         run: date
