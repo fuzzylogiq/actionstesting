@@ -19,7 +19,7 @@ jobs:
         run: Get-Date
   job4:
     needs: [job1, job2, job3]
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: print date
         run: date
