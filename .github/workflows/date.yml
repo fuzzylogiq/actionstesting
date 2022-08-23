@@ -2,6 +2,7 @@ name: date
 on: [push]
 jobs:
 	job1:
+		name: job1
 		runs-on: ubuntu-latest
 		steps:
 			- uses: actions/checkout@v3
