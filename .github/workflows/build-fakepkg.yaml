@@ -16,3 +16,8 @@ jobs:
           path: munkipkg
       - name: build pkg
         run: munkipkg/munkipkg main/fakepkg
+      - name: archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: fakepkg-built
+          path: main/fakepkg/build/*.pkg
