@@ -12,4 +12,4 @@ jobs:
         with:
           repository: munki/munki-pkg
       - name: build pkg
-        run: munki-pkg/munkipkg actionstesting/fakepkg
+        run: ls -l
