@@ -1,0 +1,10 @@
+name: build fakepkg
+on: [push]
+jobs:
+  build:
+    name: build fakepkg
+    runs-on: macos-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
