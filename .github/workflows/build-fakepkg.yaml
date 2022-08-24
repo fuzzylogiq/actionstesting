@@ -15,4 +15,4 @@ jobs:
           repository: munki/munki-pkg
           path: munkipkg
       - name: build pkg
-        run: ls -l
+        run: munkipkg/munkipkg main/fakepkg
