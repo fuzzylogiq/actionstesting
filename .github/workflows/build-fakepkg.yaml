@@ -7,9 +7,12 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
+        with:
+          path: main
       - name: checkout munkipkg
         uses: actions/checkout@v3
         with:
           repository: munki/munki-pkg
+          path: munkipkg
       - name: build pkg
         run: ls -l
