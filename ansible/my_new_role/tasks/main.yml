@@ -7,12 +7,14 @@
     cmd: apt update > /dev/null 2>&1 && apt list --upgradable 2>/dev/null | grep -v ^Listing |
          awk '{print $1,$2}' | sed 's|/.* |=|g' | sort
   register: debian_aptlist
+  changed_when: false
 
 - name: List yum if RedHat
   when: ansible_facts['os_family'] == "RedHat"
   yum:
     list: updates
   register: redhat_yumlist
+  changed_when: false
 
 - name: Export Debian list
   debug:
