@@ -12,7 +12,7 @@ jobs:
         uses: gofrolist/molecule-action@v2
         with:
           molecule_args:
-          molecule_working_dir: ansible/my_new_role
+          molecule_working_dir: ansible/list_updates
           molecule_command: test
         env:
           ANSIBLE_FORCE_COLOR: '1'
