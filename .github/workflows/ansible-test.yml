@@ -1,6 +1,6 @@
 ---
 name: Molecule
-on: [push,workflow-dispatch]
+on: [push,workflow_dispatch]
 jobs:
   build:
     name: Molecule Test
