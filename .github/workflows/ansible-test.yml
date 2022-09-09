@@ -1,9 +1,9 @@
 ---
-name: Molecule Test Ansible Role
+name: Molecule
 on: [push]
 jobs:
   build:
-    name: build fakepkg
+    name: Molecule Test
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -11,7 +11,8 @@ jobs:
       - name: molecule test
         uses: gofrolist/molecule-action@v2
         with:
-          molecule_working_dir: actionstesting/ansible/my_test_role
+          molecule_args:
+            molecule_working_dir: actionstesting/ansible/my_test_role
           molecule_command: test
         env:
           ANSIBLE_FORCE_COLOR: '1'
