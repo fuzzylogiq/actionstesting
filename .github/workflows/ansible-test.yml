@@ -8,12 +8,10 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-        with:
-          path: x
       - name: molecule test
         uses: gofrolist/molecule-action@v2
         with:
-          molecule_working_dir: x/ansible/my_test_role
+          molecule_working_dir: ansible/my_test_role
           molecule_command: test
         env:
           ANSIBLE_FORCE_COLOR: '1'
