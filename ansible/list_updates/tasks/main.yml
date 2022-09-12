@@ -1,27 +1,29 @@
 ---
 # tasks file for my_new_role
 
-- name: List apt if Debian
+- name: List Debian Updates
+  block:
   when: ansible_facts['os_family'] == "Debian"
-  shell:
-    cmd: apt update > /dev/null 2>&1 && apt list --upgradable 2>/dev/null | grep -v ^Listing |
-         awk '{print $1,$2}' | sed 's|/.* |=|g' | sort
-  register: debian_aptlist
-  changed_when: false
+  - name: List apt if Debian
+    shell:
+      cmd: apt update > /dev/null 2>&1 && apt list --upgradable 2>/dev/null | grep -v ^Listing |
+           awk '{print $1,$2}' | sed 's|/.* |=|g' | sort
+    register: debian_aptlist
+    changed_when: false
 
-- name: List yum if RedHat
+  - name: Export Debian list
+    debug:
+      msg: "{{ debian_aptlist.stdout_lines }}"
+
+- name: List RedHat Updates
+  block:
   when: ansible_facts['os_family'] == "RedHat"
-  yum:
-    list: updates
-  register: redhat_yumlist
-  changed_when: false
+  - name: List yum if RedHat
+    yum:
+      list: updates
+    register: redhat_yumlist
+    changed_when: false
 
-- name: Export Debian list
-  debug:
-    msg: "{{ debian_aptlist.stdout_lines }}"
-  when: ansible_facts['os_family'] == "Debian"
-
-- name: Export Redhat list
-  debug:
-    msg: "{{ redhat_yumlist }}"
-  when: ansible_facts['os_family'] == "RedHat"
+  - name: Export Redhat list
+    debug:
+      msg: "{{ redhat_yumlist.results | map(attribute='name') | list }}"
