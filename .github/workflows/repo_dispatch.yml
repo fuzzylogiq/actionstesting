@@ -1,0 +1,11 @@
+---
+on:
+  repository_dispatch:
+    types: [on-demand-test]
+    
+ 
+jobs:
+  hello-world:
+      runs-on: ubuntu-latest
+      steps:
+        run: echo "hello world"
