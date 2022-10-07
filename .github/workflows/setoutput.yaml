@@ -10,9 +10,12 @@ jobs:
         uses: actions/checkout@v3
       - name: capture output
         run: |
-          echo 'LS_OUTPUT<<EOF' >> $GITHUB_ENV
-          ls -l >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
+          content="$(ls -l)"
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=ls_output::$content
+        id: ls
       - name: echo output
         run: |
-          echo "${LS_OUTPUT}"
+          echo "${{ steps.ls.outputs.ls_output }}"
