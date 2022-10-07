@@ -6,6 +6,8 @@ jobs:
   set-output-test:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
       - name: capture output
         run: |
           echo "::set-output name=LS_OUTPUT::$(ls -l)"
