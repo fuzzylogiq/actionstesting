@@ -8,8 +8,8 @@ jobs:
     steps:
       - name: capture output
         run: |
-        echo "::set-output name=LS_OUTPUT::$(ls -l)"
+          echo "::set-output name=LS_OUTPUT::$(ls -l)"
         id: ls
       - name: echo output
         run: |
-        echo "${{ steps.ls.outputs.LS_OUTPUT }}"
+          echo "${{ steps.ls.outputs.LS_OUTPUT }}"
