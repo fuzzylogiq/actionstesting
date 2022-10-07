@@ -14,4 +14,8 @@ jobs:
         id: ls
       - name: echo output
         run: |
-          echo "${{ steps.ls.outputs.LS_OUTPUT }}"
+          LS_OUTPUT="${{ steps.ls.outputs.LS_OUTPUT }}"
+          LS_OUTPUT="${LS_OUTPUT//'%'/'%25'}"
+          LS_OUTPUT="${LS_OUTPUT//$'\n'/'%0A'}"
+          LS_OUTPUT="${LS_OUTPUT//$'\r'/'%0D'}"
+          echo "${LS_OUTPUT}"
