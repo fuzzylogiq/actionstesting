@@ -14,7 +14,7 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=ls_output::$content
+          echo "::set-output name=ls_output::$content"
         id: ls
       - name: echo output
         run: |
