@@ -9,7 +9,7 @@ on:
       
 jobs:
   check-lfs:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: LFS-warning
         uses: ActionsDesk/lfs-warning@v3.2
