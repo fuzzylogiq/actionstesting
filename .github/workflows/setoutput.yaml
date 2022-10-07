@@ -16,6 +16,9 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=ls_output::$content"
         id: ls
+  echo-output-test:
+    runs-on: ubuntu-latest
+    steps:
       - name: echo output
         run: |
-          echo "${{ steps.ls.outputs.ls_output }}"
+          echo "${{ jobs.set-output-test.steps.ls.outputs.ls_output }}"
