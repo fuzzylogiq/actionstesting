@@ -3,9 +3,9 @@
 name: large_file_check
 
 on:
-  pull_request_target:
+  pull_request:
     branches:
-      - master
+      - main
       
 jobs:
   check_lfs:
