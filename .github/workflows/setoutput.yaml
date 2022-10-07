@@ -14,14 +14,14 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=LS_OUTPUT::$content"
+          echo "::set-output name=ls::$content"
         id: ls
     outputs:
-      ls_output: "{{ steps.ls.outputs.LS_OUTPUT }}"
+      ls_output: "{{ steps.ls.outputs.ls }}"
   echo-output-test:
     runs-on: ubuntu-latest
     needs: set-output-test
     steps:
       - name: echo output
         run: |
-          echo "${{ needs.jobs.set-output-test.outputs.ls_output }}"
+          echo "${{ needs.set-output-test.outputs.ls_output }}"
