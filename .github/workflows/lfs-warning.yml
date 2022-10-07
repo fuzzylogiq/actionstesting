@@ -8,8 +8,8 @@ on:
       - main
       
 jobs:
-  check_lfs:
-    runs_on: unbuntu-latest
+  check-lfs:
+    runs-on: unbuntu-latest
     steps:
       - name: LFS-warning
         uses: ActionsDesk/lfs-warning@v3.2
