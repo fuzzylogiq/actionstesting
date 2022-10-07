@@ -24,4 +24,4 @@ jobs:
     steps:
       - name: echo output
         run: |
-          echo "${{ jobs.set-output-test.steps.ls.outputs.ls_output }}"
+          echo "${{ needs.jobs.set-output-test.outputs.ls_output }}"
