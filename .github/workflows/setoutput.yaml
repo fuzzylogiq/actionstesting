@@ -15,7 +15,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
         id: ls
     outputs:
-      ls_output: {{ steps.ls.outputs.op }}
+      ls_output: ${{ steps.ls.outputs.op }}
 
     
   echo-output-test:
