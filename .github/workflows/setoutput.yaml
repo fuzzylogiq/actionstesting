@@ -22,4 +22,4 @@ jobs:
     steps:
       - name: echo output
         run: |
-          echo "${{ needs.set-output-test.outputs.op }}"
+          echo "${{ needs.set-output-test.outputs.ls_output }}"
