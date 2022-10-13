@@ -12,7 +12,7 @@ jobs:
         run: |
           echo "op<<EOF" >> $GITHUB_OUTPUT
           echo $(ls -l)" >> $GITHUB_OUTPUT
-          echo "EOF">> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
         id: ls
     outputs:
       ls_output: steps.ls.outputs.op
