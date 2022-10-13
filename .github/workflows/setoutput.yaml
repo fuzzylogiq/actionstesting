@@ -4,6 +4,8 @@ on:
   
 jobs:
   set-output-test:
+    outputs:
+      ls_output: {{ steps.ls.outputs.op }}
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -14,8 +16,7 @@ jobs:
           echo "$(ls -l)" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
         id: ls
-    outputs:
-      ls_output: {{ steps.ls.outputs.op }}
+    
   echo-output-test:
     runs-on: ubuntu-latest
     needs: set-output-test
