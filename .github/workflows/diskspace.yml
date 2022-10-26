@@ -1,0 +1,20 @@
+name: disk space
+on:
+  workflow_dispatch:
+  
+jobs:
+  macos_diskspace:
+    runs-on: macos-latest
+    
+    steps:
+      - name: df
+        run: |
+          df
+          
+  unbuntu_diskspace:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: df
+        run: |
+          df
