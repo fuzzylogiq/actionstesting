@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: df
         run: |
-          df
+          df -h
           
   unbuntu_diskspace:
     runs-on: ubuntu-latest
@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: df
         run: |
-          df
+          df -h
